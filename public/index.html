@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+ <link rel="stylesheet" href="./css/style.min.css">
+ <title>Convert4You</title>
+</head>
+<body>
+ <header class="container-fluid header">
+  <nav class="navbar row">
+   <div class="col">
+    <a href="#" class="navbar-brand">BaseConverter.js</a>
+   </div>
+  </nav>
+ </header>
+ <main>
+  <section class="container-fluid">
+   <div class="row">
+    <div class="col-12">
+     <h1 class="h2">Base Converter</h1>
+     <p class="text-muted">Convert bases between 2 and 36 easily and quickly.</p>
+    </div>
+    <div class="col-12">
+     <div class="col-12 col-sm-3 float-sm-left px-0 number-io">
+      <label class="number-label" for="">Input</label>
+      <input class="number-input" oninput="converter()" type="text" id="number-input">
+     </div>
+     <div class="col-12 col-sm-3 float-sm-left px-0 number-from-base">
+      <label class="number-label" for="">Base-Input</label>
+      <select class="number-select" id="number-base-from" onchange="converter()">
+       <option value="2">Base2</option>
+       <option value="3">Base3</option>
+       <option value="4">Base4</option>
+       <option value="5">Base5</option>
+       <option value="6">Base6</option>
+       <option value="7">Base7</option>
+       <option value="8">Base8</option>
+       <option value="9">Base9</option>
+       <option value="10" selected>Base10</option>
+       <option value="11">Base11</option>
+       <option value="12">Base12</option>
+       <option value="13">Base13</option>
+       <option value="14">Base14</option>
+       <option value="15">Base15</option>
+       <option value="16">Base16</option>
+       <option value="17">Base17</option>
+       <option value="18">Base18</option>
+       <option value="19">Base19</option>
+       <option value="20">Base20</option>
+       <option value="21">Base21</option>
+       <option value="22">Base22</option>
+       <option value="23">Base23</option>
+       <option value="24">Base24</option>
+       <option value="25">Base25</option>
+       <option value="26">Base26</option>
+       <option value="27">Base27</option>
+       <option value="28">Base28</option>
+       <option value="29">Base29</option>
+       <option value="30">Base30</option>
+       <option value="31">Base31</option>
+       <option value="32">Base32</option>
+       <option value="33">Base33</option>
+       <option value="34">Base34</option>
+       <option value="35">Base35</option>
+       <option value="36">Base36</option>
+      </select>
+     </div>
+     <div class="col-12 col-sm-3 float-sm-left px-0 number-to-base">
+      <label class="number-label" for="">Base-Output</label>
+      <select class="number-select" id="number-base-to" onchange="converter()">
+       <option value="2" selected>Base2</option>
+       <option value="3">Base3</option>
+       <option value="4">Base4</option>
+       <option value="5">Base5</option>
+       <option value="6">Base6</option>
+       <option value="7">Base7</option>
+       <option value="8">Base8</option>
+       <option value="9">Base9</option>
+       <option value="10">Base10</option>
+       <option value="11">Base11</option>
+       <option value="12">Base12</option>
+       <option value="13">Base13</option>
+       <option value="14">Base14</option>
+       <option value="15">Base15</option>
+       <option value="16">Base16</option>
+       <option value="17">Base17</option>
+       <option value="18">Base18</option>
+       <option value="19">Base19</option>
+       <option value="20">Base20</option>
+       <option value="21">Base21</option>
+       <option value="22">Base22</option>
+       <option value="23">Base23</option>
+       <option value="24">Base24</option>
+       <option value="25">Base25</option>
+       <option value="26">Base26</option>
+       <option value="27">Base27</option>
+       <option value="28">Base28</option>
+       <option value="29">Base29</option>
+       <option value="30">Base30</option>
+       <option value="31">Base31</option>
+       <option value="32">Base32</option>
+       <option value="33">Base33</option>
+       <option value="34">Base34</option>
+       <option value="35">Base35</option>
+       <option value="36">Base36</option>
+      </select>
+     </div>
+     <div class="col-12 col-sm-3 float-sm-left px-0 number-results">
+      <label class="number-label">Results</label>
+      <output class="number-output" id="number-results">0</output>
+     </div>
+    </div>
+    <div class="col-12 col-sm-4 pr-sm-0 number-bases float-left">
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base1 (Unary)</label>
+      <output class="number-output">N/A</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base2 (Binary)</label>
+      <output class="number-output" id="number-base2">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base3 (Ternary)</label>
+      <output class="number-output" id="number-base3">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base4 (Quartenary)</label>
+      <output class="number-output" id="number-base4">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base5 (Quinary)</label>
+      <output class="number-output" id="number-base5">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base6 (Senary)</label>
+      <output class="number-output" id="number-base6">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base7 (Septenary)</label>
+      <output class="number-output" id="number-base7">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base8 (Octal)</label>
+      <output class="number-output" id="number-base8">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base9 (Nonary)</label>
+      <output class="number-output" id="number-base9">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base10 (Decimal)</label>
+      <output class="number-output" id="number-base10">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base11 (Undecimal)</label>
+      <output class="number-output" id="number-base11">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-1">
+      <label class="number-label" for="">Base12 (Duodecimal)</label>
+      <output class="number-output" id="number-base12">0</output>
+     </div>
+    </div>
+    <div class="col-12 col-sm-4 px-sm-2 number-bases float-left">
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base13 (Tridecimal)</label>
+      <output class="number-output" id="number-base13">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base14 (Tetradecimal)</label>
+      <output class="number-output" id="number-base14">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base15 (Pentadecimal)</label>
+      <output class="number-output" id="number-base15">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base16 (Hexadecimal)</label>
+      <output class="number-output" id="number-base16">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base17 (Heptadecimal)</label>
+      <output class="number-output" id="number-base17">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base18 (Octodecimal)</label>
+      <output class="number-output" id="number-base18">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base19 (Enneadecimal)</label>
+      <output class="number-output" id="number-base19">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base20 (Vigesimal)</label>
+      <output class="number-output" id="number-base20">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base21 (Unvigesimal)</label>
+      <output class="number-output" id="number-base21">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base22 (Duovigesimal)</label>
+      <output class="number-output" id="number-base22">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base23 (Trivigesimal)</label>
+      <output class="number-output" id="number-base23">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-2">
+      <label class="number-label" for="">Base24 (Tetravigesimal)</label>
+      <output class="number-output" id="number-base24">0</output>
+     </div>
+    </div>
+    <div class="col-12 col-sm-4 pl-sm-0 number-bases float-left">
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base25 (Pentavigesimal)</label>
+      <output class="number-output" id="number-base25">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base26 (Hexavigesimal)</label>
+      <output class="number-output" id="number-base26">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base27 (Heptavigesimal)</label>
+      <output class="number-output" id="number-base27">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base28 (Octovigesimal)</label>
+      <output class="number-output" id="number-base28">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base29 (Enneavigesimal)</label>
+      <output class="number-output" id="number-base29">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base30 (Trigesimal)</label>
+      <output class="number-output" id="number-base30">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base31 (Untrigesimal)</label>
+      <output class="number-output" id="number-base31">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base32 (Duotrigesimal)</label>
+      <output class="number-output" id="number-base32">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base33 (Tritrigesimal)</label>
+      <output class="number-output" id="number-base33">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base34 (Tetratrigesimal)</label>
+      <output class="number-output" id="number-base34">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base35 (Pentatrigesimal)</label>
+      <output class="number-output" id="number-base35">0</output>
+     </div>
+     <div class="col-12 px-0 number-converted-3">
+      <label class="number-label" for="">Base36 (Hexatrigesimal)</label>
+      <output class="number-output" id="number-base36">0</output>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="container-fluid"></section>
+ </main>
+ <footer class="container-fluid text-center py-2 footer">
+  Powered by <strong>South Africa Solutions</strong>
+ </footer>
+ <script src="./js/script.js"></script>
+</body>
+</html>

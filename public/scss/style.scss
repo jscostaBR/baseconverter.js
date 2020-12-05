@@ -1,0 +1,92 @@
+*{
+ box-sizing: border-box;
+}
+body{
+ color: #ccc;
+}
+.header{
+ background-color: #333;
+ border-bottom: 1px solid #777;
+}
+.header a{
+ color: #03A9F4;
+}
+main{
+ background-color: #333;
+ padding: 1rem 0;
+}
+h1{
+ color: #03A9F4;
+}
+
+
+
+.number-label{
+ height: 2rem;
+ width: 96%;
+ color: #333;
+ margin: .25rem 0;
+}
+.number-input{
+ height: 2rem;
+ width: 96%;
+}
+.number-output{
+ height: 2rem;
+ width: 96%;
+ padding: .25rem .5rem;
+ background-color: white;
+ vertical-align: middle;
+ color: #333;
+}
+.number-io,.number-from-base,.number-to-base, .number-results{
+ padding: .25rem 0;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+}
+.number-io{
+ background-color: #BA68C8;
+}
+.number-from-base{
+ background-color: #9575CD;
+}
+.number-to-base{
+ background-color: #7986CB;
+}
+.number-results{
+ background-color: #64B5F6;
+}
+.number-select{
+ height: 2rem;
+ width: 96%;
+}
+.number-bases{
+ margin-top: 1rem;
+}
+.number-converted-1,.number-converted-2,.number-converted-3{
+ padding: .25rem 0;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-direction: column;
+ height: auto;
+}
+.number-converted-1{
+ background-color: #5C6BC0;
+}
+.number-converted-2{
+ background-color: #42A5F5;
+}
+.number-converted-3{
+ background-color: #4DB6AC;
+}
+.footer{
+ background-color: #333;
+ color: #ddd;
+ border-top: 1px solid #ddd;
+}
+.footer strong{
+ color: #03A9F4;
+}
